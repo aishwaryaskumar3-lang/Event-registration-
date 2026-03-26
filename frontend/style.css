@@ -1,0 +1,70 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: hsl(294, 62%, 24%);
+}
+/* Smooth fade */
+.fade-in {
+  animation: fadeIn 0.5s ease;
+}
+
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.content {
+  display: flex;
+  gap: 20px;
+}
+
+.form input,
+.form select {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+}
+
+.fade-out {
+  animation: fadeOut 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+  to { opacity: 0; transform: translateX(20px); }
+}
+
+/* Popup */
+.popup {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #2ecc71;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 8px;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: 0.4s;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.popup.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Input focus glow */
+input:focus, select:focus {
+  outline: none;
+  border-color: #4b6cb7;
+  box-shadow: 0 0 6px rgba(75,108,183,0.5);
+}

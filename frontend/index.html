@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Event Registration</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <h2>Event Registration Portal</h2>
+  <p class="subtitle">Register now and secure your spot in exciting events.</p>
+
+  <div class="content">
+
+    <!-- Left Info -->
+    <div class="info">
+      <p>⚡ <b>Tech Fest</b> - Explore latest technology</p>
+      <p>🛠 <b>Workshop</b> - Hands-on experience</p>
+      <p>💡 <b>Seminar</b> - Learn from experts</p>
+    </div>
+
+    <!-- Form -->
+    <form id="form" class="form">
+      <input type="text" id="name" placeholder="Enter Name" required>
+      <input type="email" id="email" placeholder="Enter Email" required>
+
+      <select id="event">
+        <option value="">Select Event</option>
+        <option>Tech Fest</option>
+        <option>Workshop</option>
+        <option>Seminar</option>
+      </select>
+
+      <button type="submit">Register</button>
+    </form>
+
+  </div>
+
+  <p id="msg"></p>
+
+  <div id="users"></div>
+
+  <footer>© 2026 Event System</footer>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
