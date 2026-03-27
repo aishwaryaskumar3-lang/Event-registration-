@@ -5,8 +5,6 @@ document.getElementById("form").addEventListener("submit", async (e) => {
   const email = document.getElementById("email").value.trim();
   const event = document.getElementById("event").value;
 
-  const msg = document.getElementById("msg");
-
   // ✅ Validation
   if (!name || !email) {
     showMessage("All fields required", "red");
@@ -24,25 +22,16 @@ document.getElementById("form").addEventListener("submit", async (e) => {
   }
 
   try {
-    const res = await fetch("https://event-registration-3.onrender.com/register", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json"
-  },
-  body: JSON.stringify({ name, email, event })
-});
-
-const data = await res.json();
-
-showPopup("🎉 Registration Successful!");
-showMessage(data.message, "green");
-
-document.getElementById("form").reset();
-loadUsers();
+    // POST to your deployed backend
+    const res = await fetch("https://event-registration-2.onrender.com/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, email, event })
+    });
 
     const data = await res.json();
 
-    showPopup("🎉 Registration Sucessful!");
+    showPopup("🎉 Registration Successful!");
     showMessage(data.message, "green");
 
     document.getElementById("form").reset();
@@ -75,9 +64,9 @@ function showPopup(text) {
 }
 
 /* Load users */
-async function loadusers() {
-const res = await fetch("https://event-registration-3.onrender.com/users");
-  const users = await res.json()
+async function loadUsers() {
+  const res = await fetch("https://event-registration-2.onrender.com/users");
+  const users = await res.json();
 
   const container = document.getElementById("users");
   container.innerHTML = "";
