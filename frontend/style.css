@@ -1,106 +1,70 @@
-/* Body: soft blended purple-pink night background */
 body {
-    background: linear-gradient(135deg, #5b2a86, #ff99cc); /* purple-pink blend */
-    color: #fdf0fb; /* soft light text */
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center; /* center everything horizontally */
-    align-items: center;     /* center vertically if desired */
-    flex-direction: column;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: hsl(294, 62%, 24%);
+}
+/* Smooth fade */
+.fade-in {
+  animation: fadeIn 0.5s ease;
 }
 
-/* Header */
-header {
-    background-color: rgba(91, 42, 134, 0.7); /* semi-transparent purple */
-    color: #ffd1f0; /* soft pink header text */
-    padding: 20px;
-    text-align: center;
-    width: 100%;
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
 }
 
-/* Table */
-table {
-    margin: 20px auto; /* center the table */
-    border-collapse: collapse;
-    width: 80%;
-    background-color: rgba(255, 153, 204, 0.15); /* light pink-purple translucent background */
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 0 15px rgba(91, 42, 134, 0.3); /* subtle purple glow */
+.content {
+  display: flex;
+  gap: 20px;
 }
 
-th, td {
-    padding: 12px 15px;
-    text-align: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+.form input,
+.form select {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
 }
 
-/* Buttons */
-button {
-    background-color: #b266ff; /* soft purple */
-    color: #fff; /* white text */
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: 0.3s;
+.fade-out {
+  animation: fadeOut 0.3s ease forwards;
 }
 
-button:hover {
-    background-color: #ff99cc; /* pink hover */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* Inputs (UPDATED - darker border + better clarity) */
-input, select, textarea {
-    background-color: rgba(255, 153, 204, 0.2); /* same color */
-    color: #fff;
-    border: 2px solid #7a3fbf; /* 🔥 darker purple border */
-    border-radius: 5px;
-    padding: 10px;
-    margin: 8px 0;
-    font-size: 16px; /* 🔥 slightly bigger text */
+@keyframes fadeOut {
+  to { opacity: 0; transform: translateX(20px); }
 }
 
-/* Input focus */
-input:focus, select:focus, textarea:focus {
-    border-color: #ff99cc; /* pink highlight on click */
-    outline: none;
+/* Popup */
+.popup {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #2ecc71;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 8px;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: 0.4s;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
-/* Cards / containers */
-.card {
-    background-color: rgba(91, 42, 134, 0.4); /* soft semi-transparent purple */
-    border-radius: 10px;
-    padding: 20px;
-    margin: 15px 0;
-    box-shadow: 0 0 15px rgba(255, 153, 204, 0.3); /* soft pink glow */
+.popup.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* 🔥 NEW: Main Box for Event Registration */
-.main-box {
-    background-color: rgba(91, 42, 134, 0.5); /* same theme */
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 0 20px rgba(255, 153, 204, 0.4);
-    width: 400px;
-    text-align: center;
-}
-
-/* 🔥 NEW: Title inside box */
-.main-box h1 {
-    font-size: 26px; /* bigger text */
-    margin-bottom: 20px;
-}
-
-/* Links */
-a {
-    color: #ff99cc; /* pink link */
-    text-decoration: none;
-}
-
-a:hover {
-    color: #fff0fb; /* lighter pink on hover */
+/* Input focus glow */
+input:focus, select:focus {
+  outline: none;
+  border-color: #4b6cb7;
+  box-shadow: 0 0 6px rgba(75,108,183,0.5);
 }

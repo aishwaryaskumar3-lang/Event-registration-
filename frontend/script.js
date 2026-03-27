@@ -5,6 +5,8 @@ document.getElementById("form").addEventListener("submit", async (e) => {
   const email = document.getElementById("email").value.trim();
   const event = document.getElementById("event").value;
 
+  const msg = document.getElementById("msg");
+
   // ✅ Validation
   if (!name || !email) {
     showMessage("All fields required", "red");
@@ -22,11 +24,12 @@ document.getElementById("form").addEventListener("submit", async (e) => {
   }
 
   try {
-    // POST to your deployed backend
-    const res = await fetch("https://event-registration-2.onrender.com/register", {
+    const res = await fetch("http://localhost:1012/register", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, email, event })
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ name, email })
     });
 
     const data = await res.json();
@@ -65,7 +68,7 @@ function showPopup(text) {
 
 /* Load users */
 async function loadUsers() {
-  const res = await fetch("https://event-registration-2.onrender.com/users");
+  const res = await fetch("http://localhost:1012/users");
   const users = await res.json();
 
   const container = document.getElementById("users");
