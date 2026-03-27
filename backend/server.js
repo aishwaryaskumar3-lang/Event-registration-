@@ -8,7 +8,7 @@ app.use(cors());
 app.use(express.json());
 
 // Replace 'username', 'password', and 'myDatabase' with your MongoDB Atlas credentials
-mongoose.connect("mongodb://portfoliouser:Ash1210@ac-teisk8l-shard-00-00.qyqzsvy.mongodb.net:27017,ac-teisk8l-shard-00-01.qyqzsvy.mongodb.net:27017,ac-teisk8l-shard-00-02.qyqzsvy.mongodb.net:27017/?ssl=true&replicaSet=atlas-i8rene-shard-0&authSource=admin&appName=Cluster0")
+mongoose.connect("mongodb://portfoliouser:ERS1210@ac-teisk8l-shard-00-00.qyqzsvy.mongodb.net:27017,ac-teisk8l-shard-00-01.qyqzsvy.mongodb.net:27017,ac-teisk8l-shard-00-02.qyqzsvy.mongodb.net:27017/eventDB?ssl=true&replicaSet=atlas-i8rene-shard-0&authSource=admin&appName=Cluster0")
   .then(() => console.log("✅ MongoDB connected"))
   .catch(err => console.error("❌ MongoDB connection error:", err));
 
