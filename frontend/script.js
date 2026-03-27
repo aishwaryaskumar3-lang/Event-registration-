@@ -24,17 +24,25 @@ document.getElementById("form").addEventListener("submit", async (e) => {
   }
 
   try {
-    const res = await fetch("http://localhost:1012/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ name, email })
-    });
+    const res = await fetch("https://event-registration-3.onrender.com/register", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({ name, email, event })
+});
+
+const data = await res.json();
+
+showPopup("🎉 Registration Successful!");
+showMessage(data.message, "green");
+
+document.getElementById("form").reset();
+loadUsers();
 
     const data = await res.json();
 
-    showPopup("🎉 Registration Successful!");
+    showPopup("🎉 Registration Sucessful!");
     showMessage(data.message, "green");
 
     document.getElementById("form").reset();
@@ -67,9 +75,9 @@ function showPopup(text) {
 }
 
 /* Load users */
-async function loadUsers() {
-  const res = await fetch("http://localhost:1012/users");
-  const users = await res.json();
+async function loadusers() {
+const res = await fetch("https://event-registration-3.onrender.com/users");
+  const users = await res.json()
 
   const container = document.getElementById("users");
   container.innerHTML = "";
