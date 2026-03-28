@@ -30,9 +30,10 @@ app.post("/register", async (req, res) => {
     try {
         const newUser = new User(req.body);
         await newUser.save();
-        res.json({message:"Registered Successfully"});
+        // ✅ Send as JSON object
+        res.json({ message: "Registered Successfully" });
     } catch (err) {
-        res.status(500).json(err);
+        res.status(500).json({ message: "Server error", error: err });
     }
 });
 

@@ -24,15 +24,16 @@ document.getElementById("form").addEventListener("submit", async (e) => {
   try {
     // POST to your deployed backend
     const res = await fetch("https://event-registration-gfy6.onrender.com/register", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, email, event })
-    });
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ name, email, event })
+});
 
-    const data = await res.json();
+const data = await res.json();
+console.log(data); // 🔹 Add this line to see exactly what backend sends
 
-    showPopup("🎉 Registration Successful!");
-    showMessage(data.message, "green");
+showPopup("🎉 Registration Successful!");
+showMessage(data.message, "green");
 
     document.getElementById("form").reset();
     loadUsers();
