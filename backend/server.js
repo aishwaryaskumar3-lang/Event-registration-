@@ -30,7 +30,7 @@ app.post("/register", async (req, res) => {
     try {
         const newUser = new User(req.body);
         await newUser.save();
-        res.json("Registered Successfully");
+        res.json({message:"Registered Successfully"});
     } catch (err) {
         res.status(500).json(err);
     }
@@ -47,10 +47,11 @@ app.get("/users", async (req, res) => {
 });
 
 // Delete a user by ID
+// Delete a user by ID
 app.delete("/delete/:id", async (req, res) => {
     try {
         await User.findByIdAndDelete(req.params.id);
-        res.json("Deleted");
+        res.json({ message: "Deleted" });  // <-- change this line
     } catch (err) {
         res.status(500).json(err);
     }

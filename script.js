@@ -23,7 +23,7 @@ document.getElementById("form").addEventListener("submit", async (e) => {
 
   try {
     // POST to your deployed backend
-    const res = await fetch("https://event-registration-gfy6.onrender.com", {
+    const res = await fetch("https://event-registration-gfy6.onrender.com/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, email, event })
@@ -37,9 +37,10 @@ document.getElementById("form").addEventListener("submit", async (e) => {
     document.getElementById("form").reset();
     loadUsers();
 
-  } catch {
+  } catch (err) {
+    console.error("Register fetch error:", err);
     showMessage("Server error", "red");
-  }
+}
 });
 
 /* Elegant message */
@@ -65,7 +66,7 @@ function showPopup(text) {
 
 /* Load users */
 async function loadUsers() {
-  const res = await fetch("https://event-registration-2.onrender.com/users");
+  const res = await fetch("https://event-registration-gfy6.onrender.com/users");
   const users = await res.json();
 
   const container = document.getElementById("users");
@@ -80,10 +81,16 @@ async function loadUsers() {
       <button class="delete-btn">Delete</button>
     `;
 
-    div.querySelector("button").onclick = () => {
-      div.classList.add("fade-out");
-      setTimeout(() => div.remove(), 300);
-    };
+    div.querySelector("button").onclick = async () => {
+  try {
+    await fetch(`https://event-registration-gfy6.onrender.com/delete/${u._id}`, { method: "DELETE" });
+    div.classList.add("fade-out");
+    setTimeout(() => div.remove(), 300);
+  } catch (err) {
+    console.error("Delete error:", err);
+    showMessage("Delete failed", "red");
+  }
+};
 
     container.appendChild(div);
   });
