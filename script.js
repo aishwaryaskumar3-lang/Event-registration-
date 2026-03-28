@@ -23,7 +23,7 @@ document.getElementById("form").addEventListener("submit", async (e) => {
 
   try {
     // POST to your deployed backend
-    const res = await fetch("https://event-registration-2.onrender.com/register", {
+    const res = await fetch("https://event-registration-gfy6.onrender.com", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, email, event })
