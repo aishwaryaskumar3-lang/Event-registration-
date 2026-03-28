@@ -1,83 +1,70 @@
-/* Body: soft blended purple-pink night background */
 body {
-    background: linear-gradient(135deg, #5b2a86, #ff99cc); /* purple-pink blend */
-    color: #fdf0fb; /* soft light text */
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center; /* center everything horizontally */
-    align-items: center;     /* center vertically if desired */
-    flex-direction: column;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #ffecd2, #fcb69f);
+  margin: 0;
+  padding: 0;
 }
 
-/* Header */
-header {
-    background-color: rgba(91, 42, 134, 0.7); /* semi-transparent purple */
-    color: #ffd1f0; /* soft pink header text */
-    padding: 20px;
-    text-align: center;
-    width: 100%;
+.container {
+  max-width: 500px;
+  margin: 50px auto;
+  background: white;
+  padding: 25px 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
 
-/* Table */
-table {
-    margin: 20px auto; /* center the table */
-    border-collapse: collapse;
-    width: 80%;
-    background-color: rgba(255, 153, 204, 0.15); /* light pink-purple translucent background */
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 0 15px rgba(91, 42, 134, 0.3); /* subtle purple glow */
+h1, h2 {
+  text-align: center;
+  color: #333;
 }
 
-th, td {
-    padding: 12px 15px;
-    text-align: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+form input, form select, form button {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
 }
 
-/* Buttons */
-button {
-    background-color: #b266ff; /* soft purple */
-    color: #fff; /* white text */
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: 0.3s;
+form button {
+  background: #ff7e5f;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
 }
 
-button:hover {
-    background-color: #ff99cc; /* pink hover */
+form button:hover {
+  background: hwb(293 28% 40%);
 }
 
-/* Inputs */
-input, select, textarea {
-    background-color: rgba(255, 153, 204, 0.2); /* soft pink-purple */
-    color: #fff;
-    border: 1px solid #b266ff; /* purple border */
-    border-radius: 5px;
-    padding: 8px;
-    margin: 5px 0;
+#msg {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
-/* Cards / containers */
-.card {
-    background-color: rgba(91, 42, 134, 0.4); /* soft semi-transparent purple */
-    border-radius: 10px;
-    padding: 20px;
-    margin: 15px 0;
-    box-shadow: 0 0 15px rgba(255, 153, 204, 0.3); /* soft pink glow */
+.user-item {
+  display: flex;
+  justify-content: space-between;
+  background: #f5f5f5;
+  padding: 10px 15px;
+  margin: 8px 0;
+  border-radius: 8px;
 }
 
-/* Links */
-a {
-    color: #ff99cc; /* pink link */
-    text-decoration: none;
+.delete-btn {
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 5px 10px;
 }
 
-a:hover {
-    color: #fff0fb; /* lighter pink on hover */
+.delete-btn:hover {
+  background: #ff1a1a;
 }

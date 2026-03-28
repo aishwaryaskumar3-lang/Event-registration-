@@ -12,53 +12,46 @@ app.use(express.json());
 mongoose.connect(
   "mongodb+srv://portfoliouser:ERS1210@cluster0.qyqzsvy.mongodb.net/eventdb?retryWrites=true&w=majority"
 )
-  .then(() => console.log("MongoDB Connected"))
-  .catch(err => console.error("MongoDB connection error:", err));
+.then(() => console.log("MongoDB Connected"))
+.catch(err => console.error("MongoDB connection error:", err));
 
 // Schema
 const userSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  email: { type: String, required: true },
-  event: { type: String, required: true }
+    name: String,
+    email: String,
+    event: String
 });
 
 const User = mongoose.model("User", userSchema);
 
 // Routes
-
-// Register a new user
 app.post("/register", async (req, res) => {
   try {
     console.log("Register request received:", req.body);
-
     const newUser = new User(req.body);
     const savedUser = await newUser.save();
-
-    console.log("Saved user to MongoDB:", savedUser);
+    console.log("Saved user:", savedUser);
     res.status(200).json({ message: "Registered Successfully" });
-
   } catch (err) {
     console.error("Register error:", err);
     res.status(500).json({ message: "Server error" });
   }
 });
 
-// Get all users
 app.get("/users", async (req, res) => {
   try {
     const users = await User.find();
-    res.status(200).json(users);
+    res.json(users);
   } catch (err) {
     console.error("Get users error:", err);
     res.status(500).json({ message: "Server error" });
   }
 });
 
-// Delete a user by ID
 app.delete("/delete/:id", async (req, res) => {
   try {
     await User.findByIdAndDelete(req.params.id);
-    res.status(200).json({ message: "Deleted" });
+    res.json({ message: "Deleted" });
   } catch (err) {
     console.error("Delete error:", err);
     res.status(500).json({ message: "Server error" });
@@ -66,5 +59,7 @@ app.delete("/delete/:id", async (req, res) => {
 });
 
 // PORT
-const PORT = process.env.PORT || 1012;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
