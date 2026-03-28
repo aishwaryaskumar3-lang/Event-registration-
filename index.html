@@ -1,49 +1,145 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Event Registration</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    form {
+      max-width: 400px;
+      margin: 0 auto 20px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    form input, form select {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    form button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      background: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    #msg {
+      text-align: center;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+
+    #users {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .user-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #fff;
+      padding: 10px 15px;
+      margin-bottom: 8px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+
+    .user-item.fade-in {
+      opacity: 0;
+      transform: translateY(10px);
+      animation: fadeIn 0.3s forwards;
+    }
+
+    .user-item.fade-out {
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .delete-btn {
+      background: #f44336;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+
+    /* Popup message */
+    .popup {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #4caf50;
+      color: #fff;
+      padding: 15px 25px;
+      border-radius: 10px;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 999;
+      transition: all 0.3s ease;
+    }
+
+    .popup.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  </style>
 </head>
 <body>
 
-<div class="container">
-  <h2>Event Registration Portal</h2>
-  <p class="subtitle">Register now and secure your spot in exciting events.</p>
+  <h1>Event Registration</h1>
 
-  <div class="content">
+  <div id="msg"></div>
 
-    <!-- Left Info -->
-    <div class="info">
-      <p>⚡ <b>Tech Fest</b> - Explore latest technology</p>
-      <p>🛠 <b>Workshop</b> - Hands-on experience</p>
-      <p>💡 <b>Seminar</b> - Learn from experts</p>
-    </div>
-
-    <!-- Form -->
-    <form id="form" class="form">
-      <input type="text" id="name" placeholder="Enter Name" required>
-      <input type="email" id="email" placeholder="Enter Email" required>
-
-      <select id="event">
-        <option value="">Select Event</option>
-        <option>Tech Fest</option>
-        <option>Workshop</option>
-        <option>Seminar</option>
-      </select>
-
-      <button type="submit">Register</button>
-    </form>
-
-  </div>
-
-  <p id="msg"></p>
+  <form id="form">
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="email" id="email" placeholder="Your Email" required>
+    <select id="event" required>
+      <option value="">Select Event</option>
+      <option value="Event 1">Event 1</option>
+      <option value="Event 2">Event 2</option>
+      <option value="Event 3">Event 3</option>
+    </select>
+    <button type="submit">Register</button>
+  </form>
 
   <div id="users"></div>
 
-  <footer>© 2026 Event System</footer>
-</div>
-
-<script src="script.js"></script>
+  <!-- Link to your updated script.js -->
+  <script src="script.js"></script>
 </body>
 </html>
