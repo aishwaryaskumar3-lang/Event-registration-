@@ -8,6 +8,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.send("Event Registration Backend is Running 🚀");
+});
+
 // MongoDB connection
 mongoose.connect(
   "mongodb+srv://portfoliouser:ERS1012@cluster0.qyqzsvy.mongodb.net/eventDB?retryWrites=true&w=majority"
